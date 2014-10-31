@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D420E9AE-CD24-401D-BD12-19FF1D70B24A}</ProjectGuid>
+    <ProjectTypeGuids>{69878862-DA7D-4DC6-B0A1-50D8FAB4242F};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>USMS_Source</RootNamespace>
+    <AssemblyName>USMS_Source</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Sce.PlayStation.Core" />
+    <Reference Include="Sce.PlayStation.HighLevel.GameEngine2D" />
+    <Reference Include="Sce.PlayStation.HighLevel.UI" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\AppMain.cs" />
+    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Background.cs" />
+    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Player.cs" />
+    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Obstacle.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PsmMetadata Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\app.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Sce\Sce.Psm.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\" />
+    <Folder Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\shaders\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\background.png" />
+    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\bird.png" />
+    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\bottompipe.png" />
+    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\toppipe.png" />
+    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\bird.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <ShaderProgram Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\shaders\Texture.fcg" />
+    <ShaderProgram Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\shaders\Texture.vcg" />
+  </ItemGroup>
+</Project>
