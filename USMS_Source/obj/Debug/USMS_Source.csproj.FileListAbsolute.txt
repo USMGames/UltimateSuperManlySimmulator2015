@@ -130,3 +130,5 @@ F:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Deb
 F:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-signed\Application\textures\ManLEE front.png
 G:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\textures\ManLEE front.png
 G:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-signed\Application\textures\ManLEE front.png
+G:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\textures\enemy.gif
+G:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-signed\Application\textures\enemy.gif

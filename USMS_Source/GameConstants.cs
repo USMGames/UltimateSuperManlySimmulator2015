@@ -7,6 +7,7 @@ namespace USMS_Source
 		//bullet constants
         public const int NumBullets = 30;
         public const float BulletSpeedAdjustment = 100.0f;
+		public const int EnemyCount = 10;
 	}
 }
 

@@ -44,6 +44,7 @@
     <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Obstacle.cs" />
     <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Bullet.cs" />
     <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\GameConstants.cs" />
+    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Enemy.cs" />
   </ItemGroup>
   <ItemGroup>
     <PsmMetadata Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\app.xml" />
@@ -61,6 +62,7 @@
     <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\bird.gif" />
     <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\bullet.gif" />
     <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\ManLEE front.png" />
+    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\enemy.gif" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\shaders\Texture.fcg" />

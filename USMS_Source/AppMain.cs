@@ -24,7 +24,9 @@ namespace USMS_Source
 		private static Player			player;
 		private static Background	background;
 		private static Bullet[]		bulletList;
+		private static Enemy[]		   enemies;
 		private static double 	  MS_PER_FRAME;
+		private static bool			 timerDone;
 		
 		private static GamePadData gamePadData;
 		public static GamePadData PadData 
@@ -38,10 +40,11 @@ namespace USMS_Source
 		{
 			Initialize();
 			
-			
+		
 			
 			//Game loop
 			bool quitGame = false;
+			bool timerDone = true;
 			while (!quitGame) 
 			{
 //				Stopwatch timer = Stopwatch.StartNew();
@@ -109,9 +112,18 @@ namespace USMS_Source
 			// Create the bullet array
 			bulletList = new Bullet[GameConstants.NumBullets];
 			
+			// Create the enemy array
+			enemies = new Enemy[GameConstants.EnemyCount];
+			
 			for (int i = 0; i < GameConstants.NumBullets; i++)
 			{
-				bulletList[i] = new Bullet(gameScene);
+				bulletList[i] = new Bullet(gameScene, player);
+			}
+			
+			// Create the enemies
+			for(int i = 0; i < GameConstants.EnemyCount; i++)
+			{
+				enemies[i] = new Enemy(gameScene);
 			}
 			
 			//Create some obstacles.
@@ -146,82 +158,102 @@ namespace USMS_Source
 				//Move the background.
 				background.Update(deltaTime);
 			
-			// Update the bullets
-			for (int i = 0; i < GameConstants.NumBullets; i++)
-            {
-                if (bulletList[i].IsActive)
-                {
-                    bulletList[i].Update(deltaTime);
-                }
-            }
-				
-			// Bullet-Enemy collision check
-//            for (int i = 0; i < enemyList.Length; i++)
-//            {
-//                if (enemyList[i].isActive)
-//                {			
-//					Bounds2 enem = enemyList[i].Quad.Bounds2();
-//					float enemyWidth  = enem.Point10.X;
-//					float enemyHeight = enem.Point01.Y;
-//			
-//					float enemyLeft = enemyList[i].Position.X + (enemyWidth);
-//					float enemyRight = enemyList[i].Position.X + (enemyWidth);
-//					float enemyBottom = enemyList[i].Position.Y;
-//					float enemyTop = enemyBottom + enemyHeight;
-//						
-//                    for (int j = 0; j < bulletList.Length; j++)
-//                    {
-//                        if (bulletList[j].isActive)
-//                        {
-//							Bounds2 bull = bulletList[j].Quad.Bounds2();
-//							float bulletWidth  = bull.Point10.X;
-//							float bulletHeight = bull.Point01.Y;
-//			
-//							float bulletLeft = bulletList[i].Position.X + (bulletWidth);
-//							float bulletRight = bulletList[i].Position.X + (bulletWidth);
-//							float bulletBottom = bulletList[i].Position.Y;
-//							float bulletTop = bulletBottom + bulletHeight;	
-//								
-//                            if ( (bulletBottom < enemyTop) && (bulletTop > enemyBottom) &&
-//				     (bulletRight > enemyLeft) && (bulletLeft < enemyRight) )
-//                            {
-//                                //soundBank.PlayCue("explosion2");
-//                                enemyList[i].isActive = false;
-//                                bulletList[j].isActive = false;
-//                                //score += GameConstants.KillBonus;
-//                                break; //no need to check other bullets
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-				
-			// Are we shooting?
-			if(player.IsActive && Input2.GamePad0.Cross.Down)
-            {
-                //add another bullet.  Find an inactive bullet slot and use it
-                //if all bullets slots are used, ignore the user input
-                for (int i = 0; i < GameConstants.NumBullets; i++)
-                {
-                    if (!bulletList[i].IsActive)
-                    {
-							// bulletList[i].Activate(vector2 direction);
-							 bulletList[i].Activate(player.Direction, player.Position);
-//                        bulletList[i].direction = player.RotationMatrix.Forward;
-//                        bulletList[i].speed = GameConstants.BulletSpeedAdjustment;
-//                        bulletList[i].position = player.Position +
-//                  		(200 * bulletList[i].direction);
-//                        bulletList[i].isActive = true;
-                        //score -= GameConstants.ShotPenalty;
-                        //soundBank.PlayCue("tx0_fire1");
-							Console.WriteLine("i = " + i);
+				// Update the bullets
+				for (int i = 0; i < GameConstants.NumBullets; i++)
+	            {
+	                if (bulletList[i].IsActive)
+	                {
+	                    bulletList[i].Update(deltaTime);
+	                }
+	            }
+					
+				// Bullet-enemies collision check
+	//            for (int i = 0; i < enemiesList.Length; i++)
+	//            {
+	//                if (enemiesList[i].isActive)
+	//                {			
+	//					Bounds2 enem = enemiesList[i].Quad.Bounds2();
+	//					float enemiesWidth  = enem.Point10.X;
+	//					float enemiesHeight = enem.Point01.Y;
+	//			
+	//					float enemiesLeft = enemiesList[i].Position.X + (enemiesWidth);
+	//					float enemiesRight = enemiesList[i].Position.X + (enemiesWidth);
+	//					float enemiesBottom = enemiesList[i].Position.Y;
+	//					float enemiesTop = enemiesBottom + enemiesHeight;
+	//						
+	//                    for (int j = 0; j < bulletList.Length; j++)
+	//                    {
+	//                        if (bulletList[j].isActive)
+	//                        {
+	//							Bounds2 bull = bulletList[j].Quad.Bounds2();
+	//							float bulletWidth  = bull.Point10.X;
+	//							float bulletHeight = bull.Point01.Y;
+	//			
+	//							float bulletLeft = bulletList[i].Position.X + (bulletWidth);
+	//							float bulletRight = bulletList[i].Position.X + (bulletWidth);
+	//							float bulletBottom = bulletList[i].Position.Y;
+	//							float bulletTop = bulletBottom + bulletHeight;	
+	//								
+	//                            if ( (bulletBottom < enemiesTop) && (bulletTop > enemiesBottom) &&
+	//				     (bulletRight > enemiesLeft) && (bulletLeft < enemiesRight) )
+	//                            {
+	//                                //soundBank.PlayCue("explosion2");
+	//                                enemiesList[i].isActive = false;
+	//                                bulletList[j].isActive = false;
+	//                                //score += GameConstants.KillBonus;
+	//                                break; //no need to check other bullets
+	//                            }
+	//                        }
+	//                    }
+	//                }
+	//            }
+					
+				// Are we shooting?
+				if(Input2.GamePad0.Cross.Down)
+	            {
+					if(timerDone)
+					{
+						Bullet.BulletTimer.Reset();
+						timerDone = false;
+					}
 
-                        break; //exit the loop     
-                    }
-						  //break; //exit the loop  
-                }
+	                //add another bullet.  Find an inactive bullet slot and use it
+	                //if all bullets slots are used, ignore the user input
+	                for (int i = 0; i < GameConstants.NumBullets; i++)
+	                {
+						if(Bullet.BulletTimer.Seconds() > 1)
+						{
+							timerDone = true;
+							Bullet.BulletTimer.Reset();
+						}
+						if(timerDone)
+						{
+		                    	if (!bulletList[i].IsActive)
+		                    {
+									// bulletList[i].Activate(vector2 direction);
+									 bulletList[i].Activate(player.Direction, player.Position);
+		//                        bulletList[i].direction = player.RotationMatrix.Forward;
+		//                        bulletList[i].speed = GameConstants.BulletSpeedAdjustment;
+		//                        bulletList[i].position = player.Position +
+		//                  		(200 * bulletList[i].direction);
+		//                        bulletList[i].isActive = true;
+		                        //score -= GameConstants.ShotPenalty;
+		                        //soundBank.PlayCue("tx0_fire1");
+									Console.WriteLine("i = " + i);
+		
+		                        //break; //exit the loop     
+		                    }
+							  //break; //exit the loop  
+						}
+	                }
+	            }
+				
+				for(int i = 0; i < GameConstants.EnemyCount; i++)
+				{
+					//Console.WriteLine("Inside ChasePlayer For Loop. I = " + i);
+					enemies[i].ChasePlayer(player, deltaTime);
+				}
             }
-        }
 							
 				//Update the obstacles.
 //				foreach(Obstacle obstacle in obstacles)
