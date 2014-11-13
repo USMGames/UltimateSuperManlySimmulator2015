@@ -16,6 +16,8 @@ namespace USMS_Source
 {
 	public class AppMain
 	{
+		const float kBulletDelay = 0.01f;
+		
 		private static Sce.PlayStation.HighLevel.GameEngine2D.Scene 	gameScene;
 		private static Sce.PlayStation.HighLevel.UI.Scene 				uiScene;
 		private static Sce.PlayStation.HighLevel.UI.Label				scoreLabel;
@@ -27,6 +29,9 @@ namespace USMS_Source
 		private static Enemy[]		   enemies;
 		private static double 	  MS_PER_FRAME;
 		private static bool			 timerDone;
+		private static float 		 bulletTimer;
+		private static Sce.PlayStation.HighLevel.GameEngine2D.Base.Timer timer = new Sce.PlayStation.HighLevel.GameEngine2D.Base.Timer();
+		private static float		previousTime;
 		
 		private static GamePadData gamePadData;
 		public static GamePadData PadData 
@@ -49,11 +54,7 @@ namespace USMS_Source
 			{
 //				Stopwatch timer = Stopwatch.StartNew();
 //				double start = timer.ElapsedMilliseconds;
-				
-				Sce.PlayStation.HighLevel.GameEngine2D.Base.Timer timer = new Sce.PlayStation.HighLevel.GameEngine2D.Base.Timer();
-				
-				Update ((float)timer.Milliseconds());
-				
+				Update();
 				Director.Instance.Update();
 				Director.Instance.Render();
 				UISystem.Render();
@@ -61,7 +62,6 @@ namespace USMS_Source
 				Director.Instance.GL.Context.SwapBuffers();
 				Director.Instance.PostSwap();
 				
-				timer.Reset();
 				//Thread.Sleep ((int)(start + MS_PER_FRAME) - (int)(timer.ElapsedMilliseconds));
 			}
 			
@@ -76,6 +76,8 @@ namespace USMS_Source
 
 		public static void Initialize ()
 		{
+			bulletTimer = kBulletDelay;
+			previousTime = 0.0f;
 			MS_PER_FRAME = 16.6666666667;
 			
 			//Set up director and UISystem.
@@ -137,8 +139,12 @@ namespace USMS_Source
 			
 		}
 		
-		public static void Update(float deltaTime)
+		public static void Update()
 		{
+			float currentTime = (float)timer.Milliseconds();
+			float deltaTime = currentTime-previousTime;
+			previousTime = currentTime;
+			
 			// Gets the time between the current frame, and the last frame.
 			//float timeDelta = (float)gameTime.ElapsedGameTime.TotalSeconds;
 			
@@ -163,9 +169,12 @@ namespace USMS_Source
 	            {
 	                if (bulletList[i].IsActive)
 	                {
-	                    bulletList[i].Update(deltaTime);
+	                    //bulletList[i].Update(deltaTime);
+						bulletList[i].Update(deltaTime);
 	                }
 	            }
+				
+				
 					
 				// Bullet-enemies collision check
 	//            for (int i = 0; i < enemiesList.Length; i++)
@@ -209,43 +218,30 @@ namespace USMS_Source
 	//            }
 					
 				// Are we shooting?
-				if(Input2.GamePad0.Cross.Down)
+				bulletTimer += deltaTime;
+				if(Input2.GamePad0.Cross.Press)
 	            {
-					if(timerDone)
+					//if(Bullet.BulletTimer.)
+					//{
+						// start it
+					//}
+					
+					if(bulletTimer >= kBulletDelay)
 					{
-						Bullet.BulletTimer.Reset();
-						timerDone = false;
+						for(int i = 0; i < GameConstants.NumBullets; i++)
+						{
+							if (!bulletList[i].IsActive)
+							{
+								bulletList[i].Activate(player.Direction, player.Position);
+								bulletTimer = 0.0f;
+								break;
+							}
+						}
 					}
+					
 
 	                //add another bullet.  Find an inactive bullet slot and use it
 	                //if all bullets slots are used, ignore the user input
-	                for (int i = 0; i < GameConstants.NumBullets; i++)
-	                {
-						if(Bullet.BulletTimer.Seconds() > 1)
-						{
-							timerDone = true;
-							Bullet.BulletTimer.Reset();
-						}
-						if(timerDone)
-						{
-		                    	if (!bulletList[i].IsActive)
-		                    {
-									// bulletList[i].Activate(vector2 direction);
-									 bulletList[i].Activate(player.Direction, player.Position);
-		//                        bulletList[i].direction = player.RotationMatrix.Forward;
-		//                        bulletList[i].speed = GameConstants.BulletSpeedAdjustment;
-		//                        bulletList[i].position = player.Position +
-		//                  		(200 * bulletList[i].direction);
-		//                        bulletList[i].isActive = true;
-		                        //score -= GameConstants.ShotPenalty;
-		                        //soundBank.PlayCue("tx0_fire1");
-									Console.WriteLine("i = " + i);
-		
-		                        //break; //exit the loop     
-		                    }
-							  //break; //exit the loop  
-						}
-	                }
 	            }
 				
 				for(int i = 0; i < GameConstants.EnemyCount; i++)

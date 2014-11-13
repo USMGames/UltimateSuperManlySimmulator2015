@@ -74,15 +74,15 @@ namespace USMS_Source
 			//if((sprite.Position.Y + SpriteHeight) < Director.Instance.GL.Context.GetViewport().Height - 4)
 			//{
 			
-			
+			const float kEnemySpeed = 5.0f;
 			if(player.Position.X > sprite.Position.X)	
-				sprite.Position = new Vector2(sprite.Position.X + (100 * deltaTime), sprite.Position.Y);
+				sprite.Position = new Vector2(sprite.Position.X + (kEnemySpeed * deltaTime), sprite.Position.Y);
 			if(player.Position.Y > sprite.Position.Y)
-				sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y + (100 * deltaTime));
+				sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y + (kEnemySpeed * deltaTime));
 			if(player.Position.X < sprite.Position.X)
-			    sprite.Position = new Vector2(sprite.Position.X - (100 * deltaTime), sprite.Position.Y);
+			    sprite.Position = new Vector2(sprite.Position.X - (kEnemySpeed * deltaTime), sprite.Position.Y);
 			if(player.Position.Y < sprite.Position.Y)
-			    sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y - (100 * deltaTime));
+			    sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y - (kEnemySpeed * deltaTime));
 			//}
 		}
 	}

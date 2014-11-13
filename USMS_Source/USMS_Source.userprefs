@@ -2,18 +2,20 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Player.cs">
     <Files>
-      <File FileName="AppMain.cs" Line="223" Column="13" />
+      <File FileName="AppMain.cs" Line="145" Column="22" />
       <File FileName="Background.cs" Line="18" Column="22" />
-      <File FileName="Player.cs" Line="21" Column="31" />
+      <File FileName="Player.cs" Line="179" Column="6" />
       <File FileName="Obstacle.cs" Line="64" Column="37" />
       <File FileName="app.xml" Line="11" Column="1" />
-      <File FileName="Bullet.cs" Line="60" Column="41" />
-      <File FileName="GameConstants.cs" Line="7" Column="3" />
+      <File FileName="Bullet.cs" Line="35" Column="4" />
+      <File FileName="GameConstants.cs" Line="10" Column="36" />
+      <File FileName="Enemy.cs" Line="77" Column="33" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="USMS_Source" expanded="True">
+            <Node name="textures" expanded="True" />
             <Node name="Player.cs" selected="True" />
           </Node>
         </State>
@@ -31,7 +33,9 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="F:\Jess' house\Technical Games Production\USMS Main Folder\USMS_Source\AppMain.cs" line="231" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

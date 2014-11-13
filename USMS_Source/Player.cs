@@ -22,14 +22,16 @@ namespace USMS_Source
 		private static float 		spriteWidth;
 		private static float		spriteHeight;
 		private static bool			isActive;
-		private static Vector2      direction;
+		private static Vector2      playerDirection;
+		private static Vector2      bulletDirection;
+		private static float 		speed;
 		
 		public float PositionX{ get{return sprite.Position.X;}}
 		public float PositionY{ get{return sprite.Position.Y; }}
 		public Vector2 Position{ get{return sprite.Position;} set {sprite.Position = value;}}
 		public float SpriteWidth{ get{return spriteWidth;}}
 		public float SpriteHeight{ get{return spriteHeight;}}
-		public Vector2 Direction{ get{return direction;} set{ direction = value; }}
+		public Vector2 Direction{ get{return bulletDirection;} set{ bulletDirection = value; }}
 		
 		public bool IsActive { get{return alive;} set{alive = value;} }
 		
@@ -52,15 +54,11 @@ namespace USMS_Source
 			sprite 			= new SpriteUV(textureInfo);	
 			sprite.Quad.S 	= textureInfo.TextureSizef;
 			sprite.Position = new Vector2(50.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f);
-			//sprite.Pivot 	= new Vector2(0.5f,0.5f);
-			angle = 0.0f;
-			rise  = false;
 			alive = true;
-			//isActive = true;
-			spriteHeight = 31.0f;
-			spriteWidth = 21.0f;
+			bulletDirection = new Vector2(1.0f, 0.0f);
+			playerDirection = new Vector2(0.0f, 0.0f);
+			speed = 0.4f;
 			//Add to the current scene.
-			direction = new Vector2(1.0f,0.0f);
 			scene.AddChild(sprite);
 		}
 		
@@ -71,6 +69,7 @@ namespace USMS_Source
 		
 		public void Update(float deltaTime)
 		{		
+			playerDirection = new Vector2(0.0f, 0.0f);
 			
 			gamePadData = GamePad.GetData(0);
 			
@@ -78,46 +77,114 @@ namespace USMS_Source
 			if((gamePadData.Buttons & GamePadButtons.Left) != 0)
 			{
 				// Changes which way the player is facing.
-				direction = new Vector2(-1.0f,0.0f);
+				playerDirection = new Vector2(-1.0f,0.0f);
+				bulletDirection = new Vector2(-1.0f,0.0f);
 				// If the sprite is within the left of the screen, move. Else, do not move.
-				if(sprite.Position.X > 3)
+				if(sprite.Position.X < 0)
 				{
-					sprite.Position = new Vector2(sprite.Position.X - 3, sprite.Position.Y);
+					playerDirection = new Vector2(0.0f, 0.0f);
 				}
 			}
 			
 			// If we move right
 			if((gamePadData.Buttons & GamePadButtons.Right) != 0)
 			{
-				direction = new Vector2(1.0f,0.0f);
+				playerDirection = new Vector2(1.0f,0.0f);
+				bulletDirection = new Vector2(1.0f,0.0f);
 				// If the sprite is within the right of the screen, move. Else, do not move.
-				if((sprite.Position.X + SpriteWidth) < (Director.Instance.GL.Context.GetViewport().Width - 3))
+				if((sprite.Position.X + sprite.TextureInfo.TileSizeInPixelsf.X) > (Director.Instance.GL.Context.GetViewport().Width))
 				{
-					sprite.Position = new Vector2(sprite.Position.X + 3, sprite.Position.Y);
+					playerDirection = new Vector2(0.0f, 0.0f);
 				}
 			}
 			
 			// If we move up
 			if((gamePadData.Buttons & GamePadButtons.Up) != 0)
 			{
-				direction = new Vector2(0.0f,1.0f);
-				if((sprite.Position.Y + SpriteHeight) < Director.Instance.GL.Context.GetViewport().Height - 4)
+				playerDirection = new Vector2(0.0f,1.0f);
+				bulletDirection = new Vector2(0.0f,1.0f);
+				
+				if((sprite.Position.Y + sprite.TextureInfo.TileSizeInPixelsf.Y) > Director.Instance.GL.Context.GetViewport().Height)
 				{
-					sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y + 3);
+					playerDirection = new Vector2(0.0f, 0.0f);
 				}
 			}
 			
 			// If we move down
 			if((gamePadData.Buttons & GamePadButtons.Down) != 0)
 			{
-				direction = new Vector2(0.0f,-1.0f);
-				if((sprite.Position.Y) > 4)
+				playerDirection = new Vector2(0.0f,-1.0f);
+				bulletDirection = new Vector2(0.0f,-1.0f);
+				
+				if((sprite.Position.Y) < 0)
 				{
-					sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y - 3);
+					playerDirection = new Vector2(0.0f, 0.0f);
 				}
 			}
-		}	
-		
+			
+			// If we move north-east
+			if((gamePadData.Buttons & GamePadButtons.Up) != 0 && (gamePadData.Buttons & GamePadButtons.Right) != 0)
+			{
+				playerDirection = new Vector2(0.5f,0.5f);
+				bulletDirection = new Vector2(0.5f,0.5f);
+				
+				if((sprite.Position.Y + sprite.TextureInfo.TileSizeInPixelsf.Y) > (Director.Instance.GL.Context.GetViewport().Height) 
+				  || (sprite.Position.X + sprite.TextureInfo.TileSizeInPixelsf.X) > (Director.Instance.GL.Context.GetViewport().Width))
+				{
+					Console.WriteLine("Out");
+					playerDirection = new Vector2(0.0f,0.0f);
+				}
+			}
+			
+			// North-east
+			if((gamePadData.Buttons & GamePadButtons.Up) != 0 && (gamePadData.Buttons & GamePadButtons.Left) != 0)
+			{
+				playerDirection = new Vector2(-0.5f,0.5f);
+				bulletDirection = new Vector2(-0.5f,0.5f);
+				
+				if((sprite.Position.Y + sprite.TextureInfo.TileSizeInPixelsf.Y) > (Director.Instance.GL.Context.GetViewport().Height) 
+				  || (sprite.Position.X + sprite.TextureInfo.TileSizeInPixelsf.X) < 0)
+				{
+					Console.WriteLine("Out");
+					playerDirection = new Vector2(0.0f,0.0f);
+				}
+			}
+			
+			// South-west
+			if((gamePadData.Buttons & GamePadButtons.Down) != 0 && (gamePadData.Buttons & GamePadButtons.Left) != 0)
+			{
+				playerDirection.X = -0.5f;
+				playerDirection.Y = -0.5f;
+				bulletDirection.X = -0.5f;
+				bulletDirection.Y = -0.5f;
+				
+				if((sprite.Position.Y) < 0 
+				  || (sprite.Position.X) < 0)
+				{
+					Console.WriteLine("Out");
+					playerDirection = new Vector2(0.0f,0.0f);
+				}
+			}
+			
+			// South-east
+			if((gamePadData.Buttons & GamePadButtons.Down) != 0 && (gamePadData.Buttons & GamePadButtons.Right) != 0)
+			{
+				playerDirection.X = 0.5f;
+				playerDirection.Y = -0.5f;
+				bulletDirection.X = 0.5f;
+				bulletDirection.Y = -0.5f;
+				
+				if((sprite.Position.Y) < 0 
+				  || (sprite.Position.X) > Director.Instance.GL.Context.GetViewport().Width)
+				{
+					Console.WriteLine("Out");
+					playerDirection = new Vector2(0.0f,0.0f);
+				}
+			}
+			
+			sprite.Position += playerDirection * deltaTime * speed;
+			
+		}		
 //		public void Tapped()
 //		{
 //			if(!rise)

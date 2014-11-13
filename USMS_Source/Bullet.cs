@@ -17,12 +17,10 @@ namespace USMS_Source
 		private bool isActive;
 		private float 		spriteWidth;
 		private float		spriteHeight;
-		private static SpriteUV 	sprite;
+		private SpriteUV 	sprite;
 		private static TextureInfo	textureInfo;
-		private static Sce.PlayStation.HighLevel.GameEngine2D.Base.Timer bulletTimer = new Sce.PlayStation.HighLevel.GameEngine2D.Base.Timer();
 		
 		public bool IsActive { get{ return isActive; } }
-		public static Sce.PlayStation.HighLevel.GameEngine2D.Base.Timer BulletTimer { get{ return bulletTimer; }}
 		
 		public Bullet(Scene scene, Player player)
 		{
@@ -37,7 +35,8 @@ namespace USMS_Source
 			
 			// Initialise variables
 			isActive = false;
-			speed = 500.0f;
+			speed = 0.5f;
+			//damage = 50.0f;
 			//position = new Vector2(0.0f, 0.0f);
 			direction = player.Direction;
 			
@@ -62,7 +61,7 @@ namespace USMS_Source
 		public void Update(float deltaTime)
 		{
 			// deltaTime causes the sprite not to draw
-			sprite.Position += direction * (deltaTime * speed);
+			sprite.Position += direction * deltaTime * speed;
 			
 				// If the bullet goes off the edge of the screen, set it to inactive.
 				if(sprite.Position.X > Director.Instance.GL.Context.GetViewport().Width |
@@ -71,6 +70,7 @@ namespace USMS_Source
 			   	   sprite.Position.Y < -10)
 				{
 					isActive = false;
+					
 				}
 		}
 		
