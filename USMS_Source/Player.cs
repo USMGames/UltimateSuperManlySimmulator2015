@@ -57,7 +57,7 @@ namespace USMS_Source
 			alive = true;
 			bulletDirection = new Vector2(1.0f, 0.0f);
 			playerDirection = new Vector2(0.0f, 0.0f);
-			speed = 0.4f;
+			speed = 0.2f;
 			//Add to the current scene.
 			scene.AddChild(sprite);
 		}
@@ -136,14 +136,14 @@ namespace USMS_Source
 				}
 			}
 			
-			// North-east
+			// North-west
 			if((gamePadData.Buttons & GamePadButtons.Up) != 0 && (gamePadData.Buttons & GamePadButtons.Left) != 0)
 			{
 				playerDirection = new Vector2(-0.5f,0.5f);
 				bulletDirection = new Vector2(-0.5f,0.5f);
 				
 				if((sprite.Position.Y + sprite.TextureInfo.TileSizeInPixelsf.Y) > (Director.Instance.GL.Context.GetViewport().Height) 
-				  || (sprite.Position.X + sprite.TextureInfo.TileSizeInPixelsf.X) < 0)
+				  || (sprite.Position.X) < 0)
 				{
 					Console.WriteLine("Out");
 					playerDirection = new Vector2(0.0f,0.0f);
@@ -175,7 +175,7 @@ namespace USMS_Source
 				bulletDirection.Y = -0.5f;
 				
 				if((sprite.Position.Y) < 0 
-				  || (sprite.Position.X) > Director.Instance.GL.Context.GetViewport().Width)
+				  || (sprite.Position.X + sprite.TextureInfo.TileSizeInPixelsf.X) > Director.Instance.GL.Context.GetViewport().Width)
 				{
 					Console.WriteLine("Out");
 					playerDirection = new Vector2(0.0f,0.0f);

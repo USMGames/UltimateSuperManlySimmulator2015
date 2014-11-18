@@ -20,7 +20,8 @@ namespace USMS_Source
 		private SpriteUV 	sprite;
 		private static TextureInfo	textureInfo;
 		
-		public bool IsActive { get{ return isActive; } }
+		public bool IsActive { get{ return isActive; } set{ isActive = value; } }
+		public Vector2 Position { get{return sprite.Position;} }
 		
 		public Bullet(Scene scene, Player player)
 		{
@@ -29,15 +30,11 @@ namespace USMS_Source
 			sprite	 		= new SpriteUV();
 			sprite 			= new SpriteUV(textureInfo);	
 			sprite.Quad.S 	= textureInfo.TextureSizef;
-			//sprite.Position = new Vector2(1.0f,0.0f);
-			//spriteHeight = 31.0f;
-			//spriteWidth = 21.0f;
 			
 			// Initialise variables
 			isActive = false;
 			speed = 0.5f;
 			//damage = 50.0f;
-			//position = new Vector2(0.0f, 0.0f);
 			direction = player.Direction;
 			
 			// Initialise the bulletTimer

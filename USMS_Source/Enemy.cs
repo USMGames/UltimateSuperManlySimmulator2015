@@ -19,6 +19,7 @@ namespace USMS_Source
 		private static float		spriteHeight;
 		private static bool			isActive;
 		private static Vector2      direction;
+		private static Vector2		enemyDirection;
 		
 		public float PositionX{ get{return sprite.Position.X;}}
 		public float PositionY{ get{return sprite.Position.Y; }}
@@ -46,9 +47,7 @@ namespace USMS_Source
 			sprite.Position = new Vector2(rand.NextFloat(0, Director.Instance.GL.Context.GetViewport().Width - 10), 
 			                              rand.NextFloat(0, Director.Instance.GL.Context.GetViewport().Height - 10));
 			alive = true;
-			spriteHeight = 31.0f;
-			spriteWidth = 21.0f;
-			direction = new Vector2(1.0f,0.0f);
+			direction = new Vector2(0.0f,0.0f);
 			
 			// Create a parameter bounding box around the enemy to detect the player.
 			Bounds2 enem = sprite.Quad.Bounds2();
@@ -64,7 +63,7 @@ namespace USMS_Source
 		
 		public void Update(float deltaTime)
 		{		
-
+			
 		}	
 		
 		public void ChasePlayer(Player player, float deltaTime)
@@ -74,15 +73,58 @@ namespace USMS_Source
 			//if((sprite.Position.Y + SpriteHeight) < Director.Instance.GL.Context.GetViewport().Height - 4)
 			//{
 			
-			const float kEnemySpeed = 5.0f;
-			if(player.Position.X > sprite.Position.X)	
-				sprite.Position = new Vector2(sprite.Position.X + (kEnemySpeed * deltaTime), sprite.Position.Y);
-			if(player.Position.Y > sprite.Position.Y)
-				sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y + (kEnemySpeed * deltaTime));
-			if(player.Position.X < sprite.Position.X)
-			    sprite.Position = new Vector2(sprite.Position.X - (kEnemySpeed * deltaTime), sprite.Position.Y);
-			if(player.Position.Y < sprite.Position.Y)
-			    sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y - (kEnemySpeed * deltaTime));
+			const float kEnemySpeed = 0.01f;
+			
+			// If the player is further North-East than the Enemy, move the enemy North-East.
+			if(player.Position.X > sprite.Position.X && player.Position.Y > sprite.Position.Y)	
+			{
+				//sprite.Position = new Vector2(sprite.Position.X + (kEnemySpeed * deltaTime), sprite.Position.Y + (kEnemySpeed * deltaTime));
+				enemyDirection = new Vector2(0.5f,0.5f);
+			}
+			
+			// If the player is further North-West than the Enemy, move the enemy North-West.
+			if(player.Position.X < sprite.Position.X && player.Position.Y > sprite.Position.Y)	
+			{
+				//sprite.Position = new Vector2(sprite.Position.X + (kEnemySpeed * deltaTime), sprite.Position.Y + (kEnemySpeed * deltaTime));
+				enemyDirection = new Vector2(-0.5f,0.5f);
+			}
+			
+			// If the player is further South-West than the Enemy, move the enemy South-West.
+			if(player.Position.X < sprite.Position.X && player.Position.Y < sprite.Position.Y)	
+			{
+				//sprite.Position = new Vector2(sprite.Position.X + (kEnemySpeed * deltaTime), sprite.Position.Y + (kEnemySpeed * deltaTime));
+				enemyDirection = new Vector2(-0.5f,-0.5f);
+			}
+			
+			// If the player is further South-East than the Enemy, move the enemy South-East.
+			if(player.Position.X > sprite.Position.X && player.Position.Y < sprite.Position.Y)	
+			{
+				//sprite.Position = new Vector2(sprite.Position.X + (kEnemySpeed * deltaTime), sprite.Position.Y + (kEnemySpeed * deltaTime));
+				enemyDirection = new Vector2(0.5f,-0.5f);
+			}
+			
+//			// If the player is further North than the Enemy, move the enemy North.
+//			if(player.Position.Y > sprite.Position.Y)
+//			{
+//				playerDirection = new Vector2(0.0f,1.0f);
+//			}
+//			// If the player is further East than the Enemy, move the enemy East.
+//			if(player.Position.X > sprite.Position.X)
+//			{
+//				playerDirection = new Vector2(1.0f,0.0f);
+//			}
+//			// If the player is further West than the Enemy, move the enemy West.
+//			if(player.Position.X < sprite.Position.X)
+//			{
+//			    playerDirection = new Vector2(-1.0f, 0.0f);
+//			}
+//			// If the player is further South than the Enemy, move the enemy South.
+//			if(player.Position.Y < sprite.Position.Y)
+//			{
+//			    playerDirection = new Vector2(0.0f, -1.0f);
+//			}
+			
+			sprite.Position += enemyDirection * deltaTime * kEnemySpeed;
 			//}
 		}
 	}

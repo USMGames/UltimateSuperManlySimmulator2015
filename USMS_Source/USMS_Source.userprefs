@@ -1,22 +1,22 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AppMain.cs">
     <Files>
-      <File FileName="AppMain.cs" Line="145" Column="22" />
+      <File FileName="AppMain.cs" Line="122" Column="51" />
       <File FileName="Background.cs" Line="18" Column="22" />
-      <File FileName="Player.cs" Line="179" Column="6" />
+      <File FileName="Player.cs" Line="150" Column="6" />
       <File FileName="Obstacle.cs" Line="64" Column="37" />
       <File FileName="app.xml" Line="11" Column="1" />
-      <File FileName="Bullet.cs" Line="35" Column="4" />
+      <File FileName="Bullet.cs" Line="14" Column="28" />
       <File FileName="GameConstants.cs" Line="10" Column="36" />
-      <File FileName="Enemy.cs" Line="77" Column="33" />
+      <File FileName="Enemy.cs" Line="66" Column="4" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="USMS_Source" expanded="True">
             <Node name="textures" expanded="True" />
-            <Node name="Player.cs" selected="True" />
+            <Node name="AppMain.cs" selected="True" />
           </Node>
         </State>
       </Pad>
@@ -28,6 +28,7 @@
           <Value>alive</Value>
           <Value>direction</Value>
           <Value>sprite.Position</Value>
+          <Value>i</Value>
         </State>
       </Pad>
     </Pads>

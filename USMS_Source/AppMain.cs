@@ -169,53 +169,52 @@ namespace USMS_Source
 	            {
 	                if (bulletList[i].IsActive)
 	                {
-	                    //bulletList[i].Update(deltaTime);
 						bulletList[i].Update(deltaTime);
 	                }
 	            }
-				
-				
 					
-				// Bullet-enemies collision check
-	//            for (int i = 0; i < enemiesList.Length; i++)
-	//            {
-	//                if (enemiesList[i].isActive)
-	//                {			
-	//					Bounds2 enem = enemiesList[i].Quad.Bounds2();
-	//					float enemiesWidth  = enem.Point10.X;
-	//					float enemiesHeight = enem.Point01.Y;
-	//			
-	//					float enemiesLeft = enemiesList[i].Position.X + (enemiesWidth);
-	//					float enemiesRight = enemiesList[i].Position.X + (enemiesWidth);
-	//					float enemiesBottom = enemiesList[i].Position.Y;
-	//					float enemiesTop = enemiesBottom + enemiesHeight;
-	//						
-	//                    for (int j = 0; j < bulletList.Length; j++)
-	//                    {
-	//                        if (bulletList[j].isActive)
-	//                        {
-	//							Bounds2 bull = bulletList[j].Quad.Bounds2();
-	//							float bulletWidth  = bull.Point10.X;
-	//							float bulletHeight = bull.Point01.Y;
-	//			
-	//							float bulletLeft = bulletList[i].Position.X + (bulletWidth);
-	//							float bulletRight = bulletList[i].Position.X + (bulletWidth);
-	//							float bulletBottom = bulletList[i].Position.Y;
-	//							float bulletTop = bulletBottom + bulletHeight;	
-	//								
-	//                            if ( (bulletBottom < enemiesTop) && (bulletTop > enemiesBottom) &&
-	//				     (bulletRight > enemiesLeft) && (bulletLeft < enemiesRight) )
-	//                            {
-	//                                //soundBank.PlayCue("explosion2");
-	//                                enemiesList[i].isActive = false;
-	//                                bulletList[j].isActive = false;
-	//                                //score += GameConstants.KillBonus;
-	//                                break; //no need to check other bullets
-	//                            }
-	//                        }
-	//                    }
-	//                }
-	//            }
+//				// Bullet-enemies collision check
+//	            for (int i = 0; i < GameConstants.NumBullets; i++)
+//	            {
+//	                if (bulletList[i].IsActive)
+//	                {			
+//						//Bounds2 enem = enemies[i].Quad.S.Bounds2();
+//						Bounds2 enem = new Bounds2(enemies[i].Position);
+//						float enemiesWidth  = enem.Point10.X;
+//						float enemiesHeight = enem.Point01.Y;
+//				
+//						float enemiesLeft = enemies[i].Position.X;
+//						float enemiesRight = enemies[i].Position.X + (enemiesWidth);
+//						float enemiesBottom = enemies[i].Position.Y;
+//						float enemiesTop = enemiesBottom + enemiesHeight;
+//							
+//	                    for (int j = 0; j < bulletList.Length; j++)
+//	                    {
+//	                        if (bulletList[j].IsActive)
+//	                        {
+//								//Bounds2 bull = bulletList[j].Quad.Bounds2();
+//								Bounds2 bull = new Bounds2(bulletList[j].Position);
+//								float bulletWidth  = bull.Point10.X;
+//								float bulletHeight = bull.Point01.Y;
+//				
+//								float bulletLeft = bulletList[i].Position.X;
+//								float bulletRight = bulletList[i].Position.X + (bulletWidth);
+//								float bulletBottom = bulletList[i].Position.Y;
+//								float bulletTop = bulletBottom + bulletHeight;	
+//									
+//	                            if ( (bulletBottom < enemiesTop) && (bulletTop > enemiesBottom) &&
+//					     (bulletRight > enemiesLeft) && (bulletLeft < enemiesRight) )
+//	                            {
+//	                                //soundBank.PlayCue("explosion2");
+//	                                //enemiesList[i].IsActive = false;
+//	                                bulletList[j].IsActive = false;
+//	                                //score += GameConstants.KillBonus;
+//	                                break; //no need to check other bullets
+//	                            }
+//	                        }
+//	                    }
+//	                }
+//	            }
 					
 				// Are we shooting?
 				bulletTimer += deltaTime;
@@ -244,10 +243,21 @@ namespace USMS_Source
 	                //if all bullets slots are used, ignore the user input
 	            }
 				
+				// Check for bullet collision with enemy
+//				for(int i = 0; i < GameConstants.NumBullets; i++)
+//				{
+//					if(bulletList[i].IsActive)
+//					{
+//							
+//					}
+//				}
+				
 				for(int i = 0; i < GameConstants.EnemyCount; i++)
 				{
-					//Console.WriteLine("Inside ChasePlayer For Loop. I = " + i);
+					Console.WriteLine("Inside ChasePlayer For Loop. I = " + i);
 					enemies[i].ChasePlayer(player, deltaTime);
+					//break;
+					Console.WriteLine ("Enemy " + i + " moved!");
 				}
             }
 							
