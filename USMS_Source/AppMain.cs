@@ -173,10 +173,12 @@ namespace USMS_Source
 	                }
 	            }
 					
+				Console.WriteLine("Width: " + Director.Instance.GL.Context.GetViewport().Width + " Height: " + Director.Instance.GL.Context.GetViewport().Height);
+			
 //				// Bullet-enemies collision check
 //	            for (int i = 0; i < GameConstants.NumBullets; i++)
 //	            {
-//	                if (bulletList[i].IsActive)
+//	                if (enemies[i].IsActive)
 //	                {			
 //						//Bounds2 enem = enemies[i].Quad.S.Bounds2();
 //						Bounds2 enem = new Bounds2(enemies[i].Position);
@@ -188,7 +190,7 @@ namespace USMS_Source
 //						float enemiesBottom = enemies[i].Position.Y;
 //						float enemiesTop = enemiesBottom + enemiesHeight;
 //							
-//	                    for (int j = 0; j < bulletList.Length; j++)
+//	                    for (int j = 0; j < GameConstants.NumBullets; j++)
 //	                    {
 //	                        if (bulletList[j].IsActive)
 //	                        {
@@ -252,10 +254,23 @@ namespace USMS_Source
 //					}
 //				}
 				
+				// Check for bullet collision with enemy
+				
+				
 				for(int i = 0; i < GameConstants.EnemyCount; i++)
 				{
 					Console.WriteLine("Inside ChasePlayer For Loop. I = " + i);
 					enemies[i].ChasePlayer(player, deltaTime);
+					// Check for Player collision with Enemy
+					enemies[i].Collision(player);
+					// Check for Bullet collision with Enemy
+					for(int j = 0; j < GameConstants.NumBullets; j++)
+					{
+						if(bulletList[j].IsActive)
+						{
+							bulletList[j].BulletCollision(enemies[i]);
+						}
+					}
 					//break;
 					Console.WriteLine ("Enemy " + i + " moved!");
 				}

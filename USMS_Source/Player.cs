@@ -35,6 +35,8 @@ namespace USMS_Source
 		
 		public bool IsActive { get{return alive;} set{alive = value;} }
 		
+		public SpriteUV Sprite {get{return sprite;}}
+		
 		// Sets up our game pad
 		GamePadData gamePadData;
 		public GamePadData PadData 

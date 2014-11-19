@@ -45,6 +45,7 @@
     <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Bullet.cs" />
     <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\GameConstants.cs" />
     <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Enemy.cs" />
+    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\EnemyCollider.cs" />
   </ItemGroup>
   <ItemGroup>
     <PsmMetadata Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\app.xml" />

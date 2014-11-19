@@ -19,12 +19,15 @@ namespace USMS_Source
 		private float		spriteHeight;
 		private SpriteUV 	sprite;
 		private static TextureInfo	textureInfo;
+		private Sce.PlayStation.HighLevel.GameEngine2D.Base.Math.RandGenerator rand;
 		
 		public bool IsActive { get{ return isActive; } set{ isActive = value; } }
 		public Vector2 Position { get{return sprite.Position;} }
 		
 		public Bullet(Scene scene, Player player)
 		{
+			rand = new Sce.PlayStation.HighLevel.GameEngine2D.Base.Math.RandGenerator(DateTime.Now.Millisecond);
+			
 			textureInfo  = new TextureInfo("/Application/textures/bullet.gif");
 			
 			sprite	 		= new SpriteUV();
@@ -69,6 +72,23 @@ namespace USMS_Source
 					isActive = false;
 					
 				}
+		}
+		
+		public void BulletCollision(Enemy enemy)
+		{
+			Bounds2 bulletBounds = new Bounds2();
+			Bounds2 enemyBounds = new Bounds2();
+			
+			sprite.GetContentWorldBounds(ref bulletBounds);
+			enemy.Sprite.GetContentWorldBounds(ref enemyBounds);
+			
+			if(bulletBounds.Overlaps(enemyBounds))
+        	{
+          		enemy.Position = new Vector2(rand.NextFloat(0, Director.Instance.GL.Context.GetViewport().Width - textureInfo.TextureSizef.X), 
+			                              rand.NextFloat(0, Director.Instance.GL.Context.GetViewport().Height - textureInfo.TextureSizef.Y));		
+//          		player.Sprite.Position = new Vector2(Director.Instance.GL.Context.GetViewport().Width,
+//                                    Director.Instance.GL.Context.GetViewport().Height/2);
+        	}
 		}
 		
 		
