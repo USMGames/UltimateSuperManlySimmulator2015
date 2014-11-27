@@ -20,7 +20,7 @@ namespace USMS_Source
 		{
 			sprites	= new SpriteUV[3];
 			
-			textureInfo  		= new TextureInfo("/Application/textures/background.png");
+			textureInfo  		= new TextureInfo("/Application/textures/City1.png");
 			//Left
 			sprites[0] 			= new SpriteUV(textureInfo);
 			sprites[0].Quad.S 	= textureInfo.TextureSizef;

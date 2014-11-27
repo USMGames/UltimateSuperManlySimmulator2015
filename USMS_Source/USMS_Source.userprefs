@@ -1,23 +1,22 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="EnemyCollider.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Background.cs">
     <Files>
-      <File FileName="AppMain.cs" Line="260" Column="6" />
-      <File FileName="Background.cs" Line="30" Column="11" />
-      <File FileName="Player.cs" Line="147" Column="6" />
-      <File FileName="Obstacle.cs" Line="64" Column="37" />
+      <File FileName="AppMain.cs" Line="258" Column="5" />
+      <File FileName="Background.cs" Line="49" Column="3" />
+      <File FileName="Player.cs" Line="173" Column="5" />
+      <File FileName="Obstacle.cs" Line="100" Column="1" />
       <File FileName="app.xml" Line="11" Column="1" />
-      <File FileName="Bullet.cs" Line="14" Column="28" />
-      <File FileName="GameConstants.cs" Line="10" Column="36" />
-      <File FileName="Enemy.cs" Line="138" Column="4" />
-      <File FileName="EnemyCollider.cs" Line="14" Column="4" />
+      <File FileName="Bullet.cs" Line="79" Column="53" />
+      <File FileName="GameConstants.cs" Line="14" Column="1" />
+      <File FileName="Enemy.cs" Line="124" Column="77" />
+      <File FileName="EnemyCollider.cs" Line="26" Column="38" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="USMS_Source" expanded="True">
-            <Node name="textures" expanded="True" />
-            <Node name="EnemyCollider.cs" selected="True" />
+            <Node name="textures" expanded="True" selected="True" />
           </Node>
         </State>
       </Pad>

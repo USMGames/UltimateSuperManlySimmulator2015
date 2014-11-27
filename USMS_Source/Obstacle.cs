@@ -26,8 +26,8 @@ namespace USMS_Source
 		//Public functions.
 		public Obstacle (float startX, Scene scene)
 		{
-			textureInfoTop     = new TextureInfo("/Application/textures/toppipe.png");
-			textureInfoBottom  = new TextureInfo("/Application/textures/bottompipe.png");
+			textureInfoTop     = new TextureInfo("/Application/textures/OfficeBuilding.png");
+			textureInfoBottom  = new TextureInfo("/Application/textures/Shops.png");
 			
 			sprites	= new SpriteUV[2];
 			

@@ -64,6 +64,12 @@
     <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\bullet.gif" />
     <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\ManLEE front.png" />
     <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\enemy.gif" />
+    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\background1.png" />
+    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\bird1.png" />
+    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\City1.png" />
+    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\enemy1.png" />
+    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\OfficeBuilding.png" />
+    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\Shops.png" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\shaders\Texture.fcg" />

@@ -138,3 +138,15 @@ E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Deb
 E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\textures\enemy.gif
 E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-signed\Application\textures\ManLEE front.png
 E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-signed\Application\textures\enemy.gif
+E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\textures\background1.png
+E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\textures\bird1.png
+E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\textures\City1.png
+E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\textures\enemy1.png
+E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\textures\OfficeBuilding.png
+E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\textures\Shops.png
+E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-signed\Application\textures\background1.png
+E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-signed\Application\textures\bird1.png
+E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-signed\Application\textures\City1.png
+E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-signed\Application\textures\enemy1.png
+E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-signed\Application\textures\OfficeBuilding.png
+E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-signed\Application\textures\Shops.png

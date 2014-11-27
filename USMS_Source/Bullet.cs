@@ -22,7 +22,7 @@ namespace USMS_Source
 		private Sce.PlayStation.HighLevel.GameEngine2D.Base.Math.RandGenerator rand;
 		
 		public bool IsActive { get{ return isActive; } set{ isActive = value; } }
-		public Vector2 Position { get{return sprite.Position;} }
+		public Vector2 Position { get{return sprite.Position;}}
 		
 		public Bullet(Scene scene, Player player)
 		{
@@ -60,18 +60,25 @@ namespace USMS_Source
 		
 		public void Update(float deltaTime)
 		{
-			// deltaTime causes the sprite not to draw
-			sprite.Position += direction * deltaTime * speed;
-			
-				// If the bullet goes off the edge of the screen, set it to inactive.
-				if(sprite.Position.X > Director.Instance.GL.Context.GetViewport().Width |
-			   	   sprite.Position.X < -20 |
-			   	   sprite.Position.Y > Director.Instance.GL.Context.GetViewport().Height |
-			   	   sprite.Position.Y < -10)
-				{
-					isActive = false;
-					
-				}
+			if(isActive)
+			{
+				// deltaTime causes the sprite not to draw
+				sprite.Position += direction * deltaTime * speed;
+					// If the bullet goes off the edge of the screen, set it to inactive.
+					if(sprite.Position.X > Director.Instance.GL.Context.GetViewport().Width |
+				   	   sprite.Position.X < -20 |
+				   	   sprite.Position.Y > Director.Instance.GL.Context.GetViewport().Height |
+				   	   sprite.Position.Y < -10)
+					{
+						isActive = false;
+						
+					}
+			}
+			else
+			{
+				sprite.Position = new Vector2(-999.0f, -999.0f);
+				//sprite.Position = -999.0f;
+			}
 		}
 		
 		public void BulletCollision(Enemy enemy)
@@ -85,7 +92,10 @@ namespace USMS_Source
 			if(bulletBounds.Overlaps(enemyBounds))
         	{
           		enemy.Position = new Vector2(rand.NextFloat(0, Director.Instance.GL.Context.GetViewport().Width - textureInfo.TextureSizef.X), 
-			                              rand.NextFloat(0, Director.Instance.GL.Context.GetViewport().Height - textureInfo.TextureSizef.Y));		
+			                              rand.NextFloat(0, Director.Instance.GL.Context.GetViewport().Height - textureInfo.TextureSizef.Y));	
+				isActive = false;
+				
+				
 //          		player.Sprite.Position = new Vector2(Director.Instance.GL.Context.GetViewport().Width,
 //                                    Director.Instance.GL.Context.GetViewport().Height/2);
         	}

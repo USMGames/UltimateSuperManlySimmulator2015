@@ -108,6 +108,9 @@ namespace USMS_Source
 			//Create the background.
 			background = new Background(gameScene);
 			
+			//buildings
+			//obstacles = new Obstacle(, gameScene);
+			
 			//Create the flappy douche
 			player = new Player(gameScene);
 			
@@ -167,10 +170,7 @@ namespace USMS_Source
 				// Update the bullets
 				for (int i = 0; i < GameConstants.NumBullets; i++)
 	            {
-	                if (bulletList[i].IsActive)
-	                {
-						bulletList[i].Update(deltaTime);
-	                }
+					bulletList[i].Update(deltaTime);
 	            }
 					
 				Console.WriteLine("Width: " + Director.Instance.GL.Context.GetViewport().Width + " Height: " + Director.Instance.GL.Context.GetViewport().Height);
