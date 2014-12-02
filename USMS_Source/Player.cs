@@ -14,28 +14,16 @@ namespace USMS_Source
 		//Private variables.
 		private static SpriteUV 	sprite;
 		private static TextureInfo	textureInfo;
-		private static int			pushAmount = 100;
-		private static float		yPositionBeforePush;
-		private static bool			rise;
-		private static float		angle;
-		private static bool			alive;
-		private static float 		spriteWidth;
-		private static float		spriteHeight;
 		private static bool			isActive;
 		private static Vector2      playerDirection;
 		private static Vector2      bulletDirection;
 		private static float 		speed;
 		
-		public float PositionX{ get{return sprite.Position.X;}}
-		public float PositionY{ get{return sprite.Position.Y; }}
-		public Vector2 Position{ get{return sprite.Position;} set {sprite.Position = value;}}
-		public float SpriteWidth{ get{return spriteWidth;}}
-		public float SpriteHeight{ get{return spriteHeight;}}
-		public Vector2 Direction{ get{return bulletDirection;} set{ bulletDirection = value; }}
-		
-		public bool IsActive { get{return alive;} set{alive = value;} }
-		
-		public SpriteUV Sprite {get{return sprite;}}
+		// Accessors
+		public Vector2 Position  { get{return sprite.Position;} set {sprite.Position = value;}}
+		public Vector2 Direction { get{return bulletDirection;} set{ bulletDirection = value; }}
+		public bool IsActive     { get{return isActive;} set{isActive = value;} }
+		public SpriteUV Sprite   { get{return sprite;} }
 		
 		// Sets up our game pad
 		GamePadData gamePadData;
@@ -44,22 +32,18 @@ namespace USMS_Source
 			get { return gamePadData;}
 		}
 		
-		//Accessors.
-		//public SpriteUV Sprite { get{return sprite;} }
-		
 		//Public functions.
 		public Player (Scene scene)
 		{
-			textureInfo  = new TextureInfo("/Application/textures/ManLEE front.png");
-			
+			textureInfo     = new TextureInfo("/Application/textures/ManLEE front.png");
 			sprite	 		= new SpriteUV();
 			sprite 			= new SpriteUV(textureInfo);	
 			sprite.Quad.S 	= textureInfo.TextureSizef;
 			sprite.Position = new Vector2(50.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f);
-			alive = true;
+			isActive 		= true;
 			bulletDirection = new Vector2(1.0f, 0.0f);
 			playerDirection = new Vector2(0.0f, 0.0f);
-			speed = 0.2f;
+			speed 			= 0.2f;
 			//Add to the current scene.
 			scene.AddChild(sprite);
 		}
@@ -133,7 +117,6 @@ namespace USMS_Source
 				if((sprite.Position.Y + sprite.TextureInfo.TileSizeInPixelsf.Y) > (Director.Instance.GL.Context.GetViewport().Height) 
 				  || (sprite.Position.X + sprite.TextureInfo.TileSizeInPixelsf.X) > (Director.Instance.GL.Context.GetViewport().Width))
 				{
-					Console.WriteLine("Out");
 					playerDirection = new Vector2(0.0f,0.0f);
 				}
 			}
@@ -147,7 +130,6 @@ namespace USMS_Source
 				if((sprite.Position.Y + sprite.TextureInfo.TileSizeInPixelsf.Y) > (Director.Instance.GL.Context.GetViewport().Height) 
 				  || (sprite.Position.X) < 0)
 				{
-					Console.WriteLine("Out");
 					playerDirection = new Vector2(0.0f,0.0f);
 				}
 			}
@@ -163,7 +145,6 @@ namespace USMS_Source
 				if((sprite.Position.Y) < 0 
 				  || (sprite.Position.X) < 0)
 				{
-					Console.WriteLine("Out");
 					playerDirection = new Vector2(0.0f,0.0f);
 				}
 			}
@@ -179,7 +160,6 @@ namespace USMS_Source
 				if((sprite.Position.Y) < 0 
 				  || (sprite.Position.X + sprite.TextureInfo.TileSizeInPixelsf.X) > Director.Instance.GL.Context.GetViewport().Width)
 				{
-					Console.WriteLine("Out");
 					playerDirection = new Vector2(0.0f,0.0f);
 				}
 			}
@@ -187,14 +167,6 @@ namespace USMS_Source
 			sprite.Position += playerDirection * deltaTime * speed;
 			
 		}		
-//		public void Tapped()
-//		{
-//			if(!rise)
-//			{
-//				rise = true;
-//				yPositionBeforePush = sprite.Position.Y;
-//			}
-//		}
 	}
 }
 

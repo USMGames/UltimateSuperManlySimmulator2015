@@ -15,45 +15,28 @@ using Sce.PlayStation.HighLevel.UI;
 namespace USMS_Source
 {
 	public class AppMain
-	{
-		const float kBulletDelay = 0.01f;
-		
+	{	
 		private static Sce.PlayStation.HighLevel.GameEngine2D.Scene 	gameScene;
 		private static Sce.PlayStation.HighLevel.UI.Scene 				uiScene;
 		private static Sce.PlayStation.HighLevel.UI.Label				scoreLabel;
 		
-		private static Obstacle[]	 obstacles;
+		//private static Obstacle[]	 obstacles;
 		private static Player			player;
 		private static Background	background;
 		private static Bullet[]		bulletList;
 		private static Enemy[]		   enemies;
-		private static double 	  MS_PER_FRAME;
-		private static bool			 timerDone;
 		private static float 		 bulletTimer;
 		private static Sce.PlayStation.HighLevel.GameEngine2D.Base.Timer timer = new Sce.PlayStation.HighLevel.GameEngine2D.Base.Timer();
 		private static float		previousTime;
-		
-		private static GamePadData gamePadData;
-		public static GamePadData PadData 
-		{ 
-			get { return gamePadData;}
-		}
-		
-		
 				
 		public static void Main (string[] args)
 		{
 			Initialize();
 			
-		
-			
 			//Game loop
 			bool quitGame = false;
-			bool timerDone = true;
 			while (!quitGame) 
 			{
-//				Stopwatch timer = Stopwatch.StartNew();
-//				double start = timer.ElapsedMilliseconds;
 				Update();
 				Director.Instance.Update();
 				Director.Instance.Render();
@@ -61,14 +44,12 @@ namespace USMS_Source
 				
 				Director.Instance.GL.Context.SwapBuffers();
 				Director.Instance.PostSwap();
-				
-				//Thread.Sleep ((int)(start + MS_PER_FRAME) - (int)(timer.ElapsedMilliseconds));
 			}
 			
 			//Clean up after ourselves.
 			player.Dispose();
-			foreach(Obstacle obstacle in obstacles)
-				obstacle.Dispose();
+//			foreach(Obstacle obstacle in obstacles)
+//				obstacle.Dispose();
 			background.Dispose();
 			
 			Director.Terminate ();
@@ -76,9 +57,8 @@ namespace USMS_Source
 
 		public static void Initialize ()
 		{
-			bulletTimer = kBulletDelay;
+			bulletTimer = GameConstants.BulletDelay;
 			previousTime = 0.0f;
-			MS_PER_FRAME = 16.6666666667;
 			
 			//Set up director and UISystem.
 			Director.Initialize ();
@@ -104,26 +84,23 @@ namespace USMS_Source
 			uiScene.RootWidget.AddChildLast(panel);
 			UISystem.SetScene(uiScene);
 			
-			
 			//Create the background.
 			background = new Background(gameScene);
 			
-			//buildings
-			//obstacles = new Obstacle(, gameScene);
-			
-			//Create the flappy douche
+			//Create the player
 			player = new Player(gameScene);
 			
 			// Create the bullet array
 			bulletList = new Bullet[GameConstants.NumBullets];
 			
-			// Create the enemy array
-			enemies = new Enemy[GameConstants.EnemyCount];
-			
+			// Create the bullets
 			for (int i = 0; i < GameConstants.NumBullets; i++)
 			{
 				bulletList[i] = new Bullet(gameScene, player);
 			}
+			
+			// Create the enemy array
+			enemies = new Enemy[GameConstants.EnemyCount];
 			
 			// Create the enemies
 			for(int i = 0; i < GameConstants.EnemyCount; i++)
@@ -131,7 +108,7 @@ namespace USMS_Source
 				enemies[i] = new Enemy(gameScene);
 			}
 			
-			//Create some obstacles.
+			//Create some obstacles/buildings.
 //			obstacles = new Obstacle[2];
 //			obstacles[0] = new Obstacle(Director.Instance.GL.Context.GetViewport().Width*0.5f, gameScene);	
 //			obstacles[1] = new Obstacle(Director.Instance.GL.Context.GetViewport().Width, gameScene);
@@ -148,17 +125,6 @@ namespace USMS_Source
 			float deltaTime = currentTime-previousTime;
 			previousTime = currentTime;
 			
-			// Gets the time between the current frame, and the last frame.
-			//float timeDelta = (float)gameTime.ElapsedGameTime.TotalSeconds;
-			
-			//Console.WriteLine("timeDelta = " + timeDelta);
-			
-			//Determine whether the player tapped the screen
-			var touches = Touch.GetData(0);
-			//If tapped, inform the player.
-//			if(touches.Count > 0)
-//				player.Tapped();
-//			
 			//Update the player.
 			player.Update(deltaTime);
 			
@@ -173,61 +139,11 @@ namespace USMS_Source
 					bulletList[i].Update(deltaTime);
 	            }
 					
-				Console.WriteLine("Width: " + Director.Instance.GL.Context.GetViewport().Width + " Height: " + Director.Instance.GL.Context.GetViewport().Height);
-			
-//				// Bullet-enemies collision check
-//	            for (int i = 0; i < GameConstants.NumBullets; i++)
-//	            {
-//	                if (enemies[i].IsActive)
-//	                {			
-//						//Bounds2 enem = enemies[i].Quad.S.Bounds2();
-//						Bounds2 enem = new Bounds2(enemies[i].Position);
-//						float enemiesWidth  = enem.Point10.X;
-//						float enemiesHeight = enem.Point01.Y;
-//				
-//						float enemiesLeft = enemies[i].Position.X;
-//						float enemiesRight = enemies[i].Position.X + (enemiesWidth);
-//						float enemiesBottom = enemies[i].Position.Y;
-//						float enemiesTop = enemiesBottom + enemiesHeight;
-//							
-//	                    for (int j = 0; j < GameConstants.NumBullets; j++)
-//	                    {
-//	                        if (bulletList[j].IsActive)
-//	                        {
-//								//Bounds2 bull = bulletList[j].Quad.Bounds2();
-//								Bounds2 bull = new Bounds2(bulletList[j].Position);
-//								float bulletWidth  = bull.Point10.X;
-//								float bulletHeight = bull.Point01.Y;
-//				
-//								float bulletLeft = bulletList[i].Position.X;
-//								float bulletRight = bulletList[i].Position.X + (bulletWidth);
-//								float bulletBottom = bulletList[i].Position.Y;
-//								float bulletTop = bulletBottom + bulletHeight;	
-//									
-//	                            if ( (bulletBottom < enemiesTop) && (bulletTop > enemiesBottom) &&
-//					     (bulletRight > enemiesLeft) && (bulletLeft < enemiesRight) )
-//	                            {
-//	                                //soundBank.PlayCue("explosion2");
-//	                                //enemiesList[i].IsActive = false;
-//	                                bulletList[j].IsActive = false;
-//	                                //score += GameConstants.KillBonus;
-//	                                break; //no need to check other bullets
-//	                            }
-//	                        }
-//	                    }
-//	                }
-//	            }
-					
 				// Are we shooting?
 				bulletTimer += deltaTime;
 				if(Input2.GamePad0.Cross.Press)
-	            {
-					//if(Bullet.BulletTimer.)
-					//{
-						// start it
-					//}
-					
-					if(bulletTimer >= kBulletDelay)
+	            {	
+					if(bulletTimer >= GameConstants.BulletDelay)
 					{
 						for(int i = 0; i < GameConstants.NumBullets; i++)
 						{
@@ -239,27 +155,10 @@ namespace USMS_Source
 							}
 						}
 					}
-					
-
-	                //add another bullet.  Find an inactive bullet slot and use it
-	                //if all bullets slots are used, ignore the user input
 	            }
-				
-				// Check for bullet collision with enemy
-//				for(int i = 0; i < GameConstants.NumBullets; i++)
-//				{
-//					if(bulletList[i].IsActive)
-//					{
-//							
-//					}
-//				}
-				
-				// Check for bullet collision with enemy
-				
 				
 				for(int i = 0; i < GameConstants.EnemyCount; i++)
 				{
-					Console.WriteLine("Inside ChasePlayer For Loop. I = " + i);
 					enemies[i].ChasePlayer(player, deltaTime);
 					// Check for Player collision with Enemy
 					enemies[i].Collision(player);
@@ -271,19 +170,14 @@ namespace USMS_Source
 							bulletList[j].BulletCollision(enemies[i]);
 						}
 					}
-					//break;
-					Console.WriteLine ("Enemy " + i + " moved!");
 				}
-            }
-							
+            }	
+		}
+	
 				//Update the obstacles.
 //				foreach(Obstacle obstacle in obstacles)
 //					obstacle.Update(0.0f);
 			//}
-			
-			
-			
-		}
 		
 	}
 }
