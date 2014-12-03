@@ -1,15 +1,20 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="AppMain.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\..\Program Files (x86)\MSBuild\Sce\Sce.Psm.Common.targets">
     <Files>
-      <File FileName="AppMain.cs" Line="15" Column="22" />
+      <File FileName="AppMain.cs" Line="78" Column="47" />
+      <File FileName="app.xml" Line="1" Column="1" />
+      <File FileName="Background.cs" Line="1" Column="1" />
+      <File FileName="GameConstants.cs" Line="1" Column="1" />
+      <File FileName="Level.cs" Line="10" Column="33" />
+      <File FileName="..\..\..\..\..\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Common.targets" Line="1605" Column="5" />
+      <File FileName="..\..\..\..\..\Program Files (x86)\MSBuild\Sce\Sce.Psm.Common.targets" Line="127" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="USMS_Source" expanded="True">
-            <Node name="textures" expanded="True" />
-            <Node name="AppMain.cs" selected="True" />
+            <Node name="Level.cs" selected="True" />
           </Node>
         </State>
       </Pad>

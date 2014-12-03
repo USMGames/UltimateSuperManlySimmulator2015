@@ -36,34 +36,33 @@
     <Reference Include="Sce.PlayStation.Core" />
     <Reference Include="Sce.PlayStation.HighLevel.GameEngine2D" />
     <Reference Include="Sce.PlayStation.HighLevel.UI" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\AppMain.cs" />
-    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Background.cs" />
-    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Player.cs" />
-    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Obstacle.cs" />
-    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Bullet.cs" />
-    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\GameConstants.cs" />
-    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Enemy.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <PsmMetadata Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\app.xml" />
+    <Reference Include="TiledMax">
+      <HintPath>lib\TiledMax.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Sce\Sce.Psm.CSharp.targets" />
   <ItemGroup>
     <Folder Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\" />
     <Folder Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\shaders\" />
+    <Folder Include="maps\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\bullet.gif" />
-    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\ManLEE front.png" />
-    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\enemy.gif" />
-    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\City1.png" />
-    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\OfficeBuilding.png" />
-    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\Shops.png" />
+    <PsmMetadata Include="app.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ShaderProgram Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\shaders\Texture.fcg" />
-    <ShaderProgram Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\shaders\Texture.vcg" />
+    <Compile Include="AppMain.cs" />
+    <Compile Include="Background.cs" />
+    <Compile Include="Bullet.cs" />
+    <Compile Include="Enemy.cs" />
+    <Compile Include="GameConstants.cs" />
+    <Compile Include="Obstacle.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Level.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="maps\desert.tmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="maps\tmw_desert_spacing.png" />
   </ItemGroup>
 </Project>

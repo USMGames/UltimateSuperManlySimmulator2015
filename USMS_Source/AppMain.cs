@@ -17,8 +17,6 @@ namespace USMS_Source
 	public class AppMain
 	{	
 		private static Sce.PlayStation.HighLevel.GameEngine2D.Scene 	gameScene;
-		private static Sce.PlayStation.HighLevel.UI.Scene 				uiScene;
-		private static Sce.PlayStation.HighLevel.UI.Label				scoreLabel;
 		
 		//private static Obstacle[]	 obstacles;
 		private static Player			player;
@@ -48,8 +46,6 @@ namespace USMS_Source
 			
 			//Clean up after ourselves.
 			player.Dispose();
-//			foreach(Obstacle obstacle in obstacles)
-//				obstacle.Dispose();
 			background.Dispose();
 			
 			Director.Terminate ();
@@ -68,22 +64,6 @@ namespace USMS_Source
 			gameScene = new Sce.PlayStation.HighLevel.GameEngine2D.Scene();
 			gameScene.Camera.SetViewFromViewport();
 			
-			//Set the ui scene.
-			uiScene = new Sce.PlayStation.HighLevel.UI.Scene();
-			Panel panel  = new Panel();
-			panel.Width  = Director.Instance.GL.Context.GetViewport().Width;
-			panel.Height = Director.Instance.GL.Context.GetViewport().Height;
-			scoreLabel = new Sce.PlayStation.HighLevel.UI.Label();
-			scoreLabel.HorizontalAlignment = HorizontalAlignment.Center;
-			scoreLabel.VerticalAlignment = VerticalAlignment.Top;
-			scoreLabel.SetPosition(
-				Director.Instance.GL.Context.GetViewport().Width/2 - scoreLabel.Width/2,
-				Director.Instance.GL.Context.GetViewport().Height*0.1f - scoreLabel.Height/2);
-			scoreLabel.Text = "0";
-			panel.AddChildLast(scoreLabel);
-			uiScene.RootWidget.AddChildLast(panel);
-			UISystem.SetScene(uiScene);
-			
 			//Create the background.
 			background = new Background(gameScene);
 			
@@ -92,6 +72,11 @@ namespace USMS_Source
 			
 			// Create the bullet array
 			bulletList = new Bullet[GameConstants.NumBullets];
+			
+			
+			//Test map loading
+			Level level = new Level("maps/desert.tmx");
+			
 			
 			// Create the bullets
 			for (int i = 0; i < GameConstants.NumBullets; i++)
@@ -107,11 +92,6 @@ namespace USMS_Source
 			{
 				enemies[i] = new Enemy(gameScene);
 			}
-			
-			//Create some obstacles/buildings.
-//			obstacles = new Obstacle[2];
-//			obstacles[0] = new Obstacle(Director.Instance.GL.Context.GetViewport().Width*0.5f, gameScene);	
-//			obstacles[1] = new Obstacle(Director.Instance.GL.Context.GetViewport().Width, gameScene);
 			
 			//Run the scene.
 			Director.Instance.RunWithScene(gameScene, true);
@@ -173,11 +153,6 @@ namespace USMS_Source
 				}
             }	
 		}
-	
-				//Update the obstacles.
-//				foreach(Obstacle obstacle in obstacles)
-//					obstacle.Update(0.0f);
-			//}
 		
 	}
 }
