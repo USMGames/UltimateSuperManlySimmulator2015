@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="CityBackground" tilewidth="32" tileheight="32">
+  <image source="City1.png" width="960" height="544"/>
+ </tileset>
+ <tileset firstgid="511" name="Office Buidlings" tilewidth="32" tileheight="32">
+  <image source="OfficeBuilding.png" width="170" height="85"/>
+ </tileset>
+ <tileset firstgid="521" name="Shop" tilewidth="32" tileheight="32">
+  <image source="Shops.png" width="340" height="113"/>
+ </tileset>
+ <layer name="CityBackground" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1+f3F3IYx2FJFCHJLJFEQ0YhQhJRGWlp2GnIzpaSmVGkKCNFVDJSRoOsQkhFymhQtGwKlSguf8DPw+8533Per3Ouh58H930/+my2WUrp/yrF5pRmC8qwJVtRlnJszTaUZ1u2Y3sqsAMV2ZFK7MTO7MKu7MbuVKYKe1C1IJMVZ3uyF9XYm+rsQw32ZT9qUova1GF/6nIAB3IQB1OP+hzCoRxGAw7nCBpyJEcVYrAi7WgacQyNOZYmHMfxNOUETqQZzWnBSZzMKZxKS06jFa1pQ1vacTrt6UBHOhVisCLtDM7kLM7mHM7lPDpzPl3oSje6cwE9uJCLuJhLuJTLuJyeXMGVXMXVXMO1XFeIwYq06+nFDfSmDzfSl5u4mVu4ldu4nX7cwZ3cxd30ZwD3cC8DuY9BDOZ+HmAIQwsxWJH2IA/xMI8wjEcZzgge43FG8gRPMorRjOEpxvI0z/AszzGO5xnPBF7gRV7i5UIMVqRNZBKTmcIrvMpUXuN13uBN3mIa03mbd3iXGbzH+3zATD5kFrOZw0d8zFw+KcRgRdo85vMpn/E5X7CAhSxiMV/yFUtYytd8wzKWs4KVrOJbvuN7fuBHfuJnfuHXQgxWpK1mDb/xO3+wlnWs50828Bd/s5FN/PPfY5+XUmxOabagDFuyFWUpx9ZsQ3m2ZbtShZ+zWNrebiqwAxXZkUrsxM7swq7sxu5Upgp7UJU92Ytq7E119qEG+7IfNalFbeqwf+5RYnXt5gAO5CAOph71OYRDOYwGHM4RNORIjuJoGnEMjTmWJhzH8TTlBE6kGc1pkXuU2El2czKncCotOY1WtKYNbWnH6bSnAx3pxBmcyVmczTmcy3l05ny60JVudOeC3KPEetjNhVzExVzCpVzG5fTkCq7kKq7mGq7lOq6nFzfQmz7cSF9u4mZu4VZu43b65R4ldofd3Mld3E1/BnAP9zKQ+xjEYO7nAYYwlAd5iId5hGE8ynBG8BiPM5IneJJRuUeJjbabMTzFWJ7mGZ7lOcbxPOOZwAu8yEu8zEQmMZkpvMKrTOU1XucN3uQtpjE99yixt+3mHd5lBu/xPh8wkw+ZxWzm8BEfM5dPmMd8PuUzPucLFrCQRSzmS75iCUtzjxL72m6+YRnLWcFKVvEt3/E9P/AjP/Ezv/Arq1nDb/zOH6xlHev5kw38xd9sZFPukVJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKKaWUUkoppZRSSimllFJKqYj6F2gk/wE=
+  </data>
+ </layer>
+ <layer name="Buildings" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt2FsKwjAQBdD4dpnufxPaHyGMMyRQtYLnQCEMST8CuXm01tpu327n5WtBVefDljk/ZfNe1ROHpd819O1rVZtX9127HZP5qeqZ/dLvEvr2tarNZ2TZ1teqNrlR3gxl2dbXqjapUd6MZNnW16o2uVHe8GWjvOGrnhnS7xlyZXvOor/FnvFjwp7hLr2tuGfIr21U62A2v+L46n/W25xyHUyeeeP46n/W25xqHcyeeeN4b/grrb37xfFveMP/Z2vvfnH8O97wAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyDyV1Qj0=
+  </data>
+ </layer>
+ <layer name="Shop" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt0TkOwlAQRMEvZ+z7bgPG4Psfkb6AUxCiSnr5qKcUAACA3zOqShmnSZqmWZqnRVqmVVpX377yf2yy9Tbt0j4d0jGd0jldUu0fH9Nk62u6pXtq0yN16ZleqfcPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABj0BkT5Av4=
+  </data>
+ </layer>
+</map>

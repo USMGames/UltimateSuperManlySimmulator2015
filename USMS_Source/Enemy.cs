@@ -27,7 +27,7 @@ namespace USMS_Source
 		public Enemy (Scene scene)
 		{
 			rand            = new Sce.PlayStation.HighLevel.GameEngine2D.Base.Math.RandGenerator(DateTime.Now.Millisecond);
-			textureInfo     = new TextureInfo("/Application/textures/enemy.gif");
+			textureInfo     = new TextureInfo("/Application/textures/EnemySprite.png");
 			sprite	 		= new SpriteUV();
 			sprite 			= new SpriteUV(textureInfo);	
 			sprite.Quad.S 	= textureInfo.TextureSizef;
@@ -87,7 +87,7 @@ namespace USMS_Source
 			Bounds2 enemyBounds  = new Bounds2();
 			
 			sprite.GetContentWorldBounds(ref enemyBounds);
-			player.Sprite.GetContentWorldBounds(ref playerBounds);
+			player.Tiles.GetContentWorldBounds(ref playerBounds);
 			
 			if(playerBounds.Overlaps(enemyBounds))
         	{

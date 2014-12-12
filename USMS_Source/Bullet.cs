@@ -20,16 +20,16 @@ namespace USMS_Source
 		
 		// Accessors
 		public bool IsActive    { get{ return isActive; } set{ isActive = value; } }
-		public Vector2 Position { get{return sprite.Position;}}
+		public Vector2 Position { get{return sprite.Position;} set{sprite.Position = value;}}
 		
 		public Bullet(Scene scene, Player player)
 		{
 			rand = new Sce.PlayStation.HighLevel.GameEngine2D.Base.Math.RandGenerator(DateTime.Now.Millisecond);
 			
-			textureInfo  = new TextureInfo("/Application/textures/bullet.gif");
+			textureInfo  = new TextureInfo("/Application/textures/Bullet.png");
 			
 			sprite	 		= new SpriteUV();
-			sprite 			= new SpriteUV(textureInfo);	
+			sprite 			= new SpriteUV(textureInfo);
 			sprite.Quad.S 	= textureInfo.TextureSizef;
 			
 			// Initialise variables
@@ -53,10 +53,24 @@ namespace USMS_Source
 			sprite.Position = newPosition;
 		}
 		
+		public void StartPosition(Player player, Vector2 newPosition)
+		{
+				if(player.SPlayerDir == "Left")
+				{
+ 					//sprite.Position.X = 0.0f;//set position of bullet to his hands on the left hand side
+					//sprite.Position.Y = 0.5f;
+					Vector2 bla = new Vector2(newPosition.X, newPosition.Y + 0.5f);
+					sprite.Position = bla;
+				}
+		}
+		
 		public void Update(float deltaTime)
 		{
 			if(isActive)
 			{
+				// See which way ManLEE is facing and set the bullet to the correct position:
+				
+				
 				sprite.Position += direction * deltaTime * speed;
 				// If the bullet goes off the edge of the screen, set it to inactive.
 				if(sprite.Position.X > Director.Instance.GL.Context.GetViewport().Width |

@@ -16,8 +16,6 @@ namespace USMS_Source
 		private static float 	bulletTimer;
 		private static Sce.PlayStation.HighLevel.GameEngine2D.Base.Timer timer = new Sce.PlayStation.HighLevel.GameEngine2D.Base.Timer();
 
-
-		
 		public Level (Scene gameScene, String fileName)
 		{
 			Initialize(gameScene);
@@ -84,6 +82,8 @@ namespace USMS_Source
 							if (!bulletList[i].IsActive)
 							{
 								bulletList[i].Activate(player.Direction, player.Position);
+								//bulletList[i].Activate(player.Direction);
+								bulletList[i].StartPosition(player, player.Position);
 								bulletTimer = 0.0f;
 								break;
 							}

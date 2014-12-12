@@ -222,3 +222,25 @@ C:\Users\Daniel\Documents\Uni PSP Game\UltimateSuperManlySimmulator2015-master\U
 C:\Users\Daniel\Documents\Uni PSP Game\UltimateSuperManlySimmulator2015-master\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\Images\titlescreen.png
 C:\Users\Daniel\Documents\Uni PSP Game\UltimateSuperManlySimmulator2015-master\USMS_Source\bin\Debug\USMS_Source-signed\Application\Images\menuscreen.png
 C:\Users\Daniel\Documents\Uni PSP Game\UltimateSuperManlySimmulator2015-master\USMS_Source\bin\Debug\USMS_Source-signed\Application\Images\titlescreen.png
+E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\DMX Maps\tmw_desert_spacing.png
+E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\Images\menuscreen.png
+E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\Images\titlescreen.png
+E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-signed\Application\DMX Maps\tmw_desert_spacing.png
+E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-signed\Application\Images\menuscreen.png
+E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-signed\Application\Images\titlescreen.png
+E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\textures\ManLeeSpriteSheet.png
+E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-signed\Application\textures\ManLeeSpriteSheet.png
+E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\textures\EnemySprite.png
+E:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-signed\Application\textures\EnemySprite.png
+G:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\DMX Maps\tmw_desert_spacing.png
+G:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\Images\menuscreen.png
+G:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\Images\titlescreen.png
+G:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\textures\ManLeeSpriteSheet.png
+G:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\textures\EnemySprite.png
+G:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\textures\Bullet.png
+G:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-signed\Application\DMX Maps\tmw_desert_spacing.png
+G:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-signed\Application\Images\menuscreen.png
+G:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-signed\Application\Images\titlescreen.png
+G:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-signed\Application\textures\ManLeeSpriteSheet.png
+G:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-signed\Application\textures\EnemySprite.png
+G:\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\bin\Debug\USMS_Source-signed\Application\textures\Bullet.png
