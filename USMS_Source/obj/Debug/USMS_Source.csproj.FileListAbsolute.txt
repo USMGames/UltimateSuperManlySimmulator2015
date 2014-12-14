@@ -297,6 +297,7 @@ C:\Users\Daniel\Documents\UltimateSuperManlySimmulator2015-master\USMS_Source\bi
 C:\Users\Daniel\Documents\UltimateSuperManlySimmulator2015-master\USMS_Source\bin\Debug\USMS_Source-signed\Application\Images\titlescreen.png
 C:\Users\Daniel\Documents\UltimateSuperManlySimmulator2015-master\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\textures\HUD.png
 C:\Users\Daniel\Documents\UltimateSuperManlySimmulator2015-master\USMS_Source\bin\Debug\USMS_Source-signed\Application\textures\HUD.png
+<<<<<<< Updated upstream
 E:\University Work\Technical Games Production\UltimateSuperManlySimmulator2015-master\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\app.info
 E:\University Work\Technical Games Production\UltimateSuperManlySimmulator2015-master\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\app.exe
 E:\University Work\Technical Games Production\UltimateSuperManlySimmulator2015-master\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
@@ -352,3 +353,7 @@ E:\University Work\Technical Games Production\UltimateSuperManlySimmulator2015-m
 E:\University Work\Technical Games Production\UltimateSuperManlySimmulator2015-master\USMS_Source\obj\Debug\convertedpdb\app.exe.mdb
 E:\University Work\Technical Games Production\UltimateSuperManlySimmulator2015-master\USMS_Source\obj\Debug\app.exe
 E:\University Work\Technical Games Production\UltimateSuperManlySimmulator2015-master\USMS_Source\obj\Debug\app.pdb
+=======
+C:\Users\Daniel\Documents\UltimateSuperManlySimmulator2015-master\USMS_Source\bin\Debug\USMS_Source-unsigned\Application\Images\gameover.png
+C:\Users\Daniel\Documents\UltimateSuperManlySimmulator2015-master\USMS_Source\bin\Debug\USMS_Source-signed\Application\Images\gameover.png
+>>>>>>> Stashed changes

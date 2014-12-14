@@ -11,9 +11,7 @@ namespace USMS_Source
 {
 	public class HUD
 	{
-		
-		private static Sce.PlayStation.HighLevel.UI.Label scoreLabel;
-		
+				
 		public HUD (Scene scene)
 		{			
 			TextureInfo hudTexture = new TextureInfo("/Application/textures/HUD.png");

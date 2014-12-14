@@ -68,6 +68,7 @@ namespace USMS_Source
 			playerDirection = new Vector2(0.0f, 0.0f);
 			
 			speed 			= 0.2f;
+			pHealth = 100;
 			//Add to the current scene.
 			//scene.AddChild(tiles);
 			scene.AddChild (tiles);
@@ -80,15 +81,15 @@ namespace USMS_Source
 		
 		
 					
-			public int getPlayerHealth()
-			{
-				return pHealth;
-			}
+		public int getPlayerHealth()
+		{
+			return pHealth;
+		}
 			
-			public void setPlayerHealth(int health)
-			{
-				pHealth = health;
-			}
+		public void setPlayerHealth(int health)
+		{
+			pHealth = health;
+		}
 		
 		
 		public void Update(float deltaTime)
@@ -101,6 +102,12 @@ namespace USMS_Source
 			{
 				tiles.TileIndex2D = new Vector2i(1, index);
 			}
+			
+			if(pHealth <= 0)
+			{
+            Director.Instance.ReplaceScene(new GameOver());	
+			}
+				
 			
 			
 			// If we move left
