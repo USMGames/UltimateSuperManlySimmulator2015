@@ -34,7 +34,9 @@ namespace USMS_Source
 			
 			//Create the player
 			player = new Player(gameScene);
-						
+			
+			hud = new HUD(gameScene);
+			
 			// Create the bullet array
 			bulletList = new Bullet[GameConstants.NumBullets];
 			
@@ -52,9 +54,6 @@ namespace USMS_Source
 			{
 				enemies[i] = new Enemy(gameScene);
 			}
-			
-			//Create the HUD
-			hud = new HUD(gameScene);
 
 		}
 		
@@ -99,7 +98,7 @@ namespace USMS_Source
 				{
 					enemies[i].ChasePlayer(player, deltaTime);
 					// Check for Player collision with Enemy
-					enemies[i].Collision(player);					
+					enemies[i].Collision(player);
 					// Check for Bullet collision with Enemy
 					for(int j = 0; j < GameConstants.NumBullets; j++)
 					{

@@ -93,10 +93,6 @@ namespace USMS_Source
         	{
           		Position = new Vector2(rand.NextFloat(0, Director.Instance.GL.Context.GetViewport().Width - textureInfo.TextureSizef.X), 
 			                           rand.NextFloat(0, Director.Instance.GL.Context.GetViewport().Height - textureInfo.TextureSizef.Y));
-				
-				
-				player.setPlayerHealth(player.getPlayerHealth() - 10);
-				
         	}
 
 		}
