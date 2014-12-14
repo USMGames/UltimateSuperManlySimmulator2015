@@ -29,6 +29,7 @@ namespace USMS_Source
 		private static Vector2      bulletDirection;
 		private static float 		speed;
 		private static string 		sPlayerDir;
+		private static int 			pHealth;
 		
 		// Accessors
 		//public Vector2 Position  { get{return tiles.Position;} set {tiles.Position = value;}}
@@ -77,6 +78,19 @@ namespace USMS_Source
 			textureInfo.Dispose();
 		}
 		
+		
+					
+			public int getPlayerHealth()
+			{
+				return pHealth;
+			}
+			
+			public void setPlayerHealth(int health)
+			{
+				pHealth = health;
+			}
+		
+		
 		public void Update(float deltaTime)
 		{		
 			playerDirection = new Vector2(0.0f, 0.0f);
@@ -87,6 +101,7 @@ namespace USMS_Source
 			{
 				tiles.TileIndex2D = new Vector2i(1, index);
 			}
+			
 			
 			// If we move left
 			if((gamePadData.Buttons & GamePadButtons.Left) != 0)

@@ -47,38 +47,39 @@
     <Folder Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Images\" />
   </ItemGroup>
   <ItemGroup>
-    <PsmMetadata Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\app.xml" />
+    <PsmMetadata Include="app.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\AppMain.cs" />
-    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Background.cs" />
-    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Bullet.cs" />
-    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Enemy.cs" />
-    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\GameConstants.cs" />
-    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Obstacle.cs" />
-    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Player.cs" />
-    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\UI\TitleScreen.cs" />
-    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Levels\Level.cs" />
-    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Levels\TestLevel.cs" />
-    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\UI\MenuScene.cs" />
-    <Compile Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\UI\OptionsScene.cs" />
+    <Compile Include="AppMain.cs" />
+    <Compile Include="Background.cs" />
+    <Compile Include="Bullet.cs" />
+    <Compile Include="Enemy.cs" />
+    <Compile Include="GameConstants.cs" />
+    <Compile Include="HUD.cs" />
+    <Compile Include="Obstacle.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Levels\Level.cs" />
+    <Compile Include="Levels\TestLevel.cs" />
+    <Compile Include="UI\MenuScene.cs" />
+    <Compile Include="UI\OptionsScene.cs" />
+    <Compile Include="UI\TitleScreen.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\DMX Maps\desert.tmx" />
-    <None Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\City1.tmx" />
+    <Content Include="textures\bullet.gif" />
+    <Content Include="textures\Bullet.png" />
+    <Content Include="textures\City1.png" />
+    <Content Include="textures\enemy.gif" />
+    <Content Include="textures\EnemySprite.png" />
+    <Content Include="textures\explosion.png" />
+    <Content Include="textures\ManLEE front.png" />
+    <Content Include="textures\ManLeeSpriteSheet.png" />
+    <Content Include="textures\OfficeBuilding.png" />
+    <Content Include="textures\Shops.png" />
+    <Content Include="Images\menuscreen.png" />
+    <Content Include="Images\titlescreen.png" />
+    <Content Include="textures\HUD.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\DMX Maps\tmw_desert_spacing.png" />
-    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Images\menuscreen.png" />
-    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\Images\titlescreen.png" />
-    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\bullet.gif" />
-    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\City1.png" />
-    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\enemy.gif" />
-    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\ManLEE front.png" />
-    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\OfficeBuilding.png" />
-    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\Shops.png" />
-    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\ManLeeSpriteSheet.png" />
-    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\EnemySprite.png" />
-    <Content Include="..\..\..\..\Jess%27 house\Technical Games Production\USMS Main Folder\USMS_Source\textures\Bullet.png" />
+    <None Include="textures\City1.tmx" />
   </ItemGroup>
 </Project>

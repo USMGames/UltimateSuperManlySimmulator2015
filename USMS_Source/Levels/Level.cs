@@ -10,6 +10,7 @@ namespace USMS_Source
 	{
 		//private Map 			map;
 		private Player			player;
+		private HUD				hud;
 		private static Bullet[]	bulletList;
 		private static Enemy[]	enemies;
 		private static float	previousTime;
@@ -33,6 +34,8 @@ namespace USMS_Source
 			
 			//Create the player
 			player = new Player(gameScene);
+			
+			hud = new HUD(gameScene);
 			
 			// Create the bullet array
 			bulletList = new Bullet[GameConstants.NumBullets];
