@@ -78,6 +78,7 @@
     <Content Include="Images\menuscreen.png" />
     <Content Include="Images\titlescreen.png" />
     <Content Include="textures\HUD.png" />
+    <Content Include="ItHasToBeThisWay.mp3" />
   </ItemGroup>
   <ItemGroup>
     <None Include="textures\City1.tmx" />

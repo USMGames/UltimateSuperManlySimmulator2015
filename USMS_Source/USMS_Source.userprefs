@@ -1,28 +1,26 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Levels\Level.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AppMain.cs">
     <Files>
       <File FileName="Player.cs" Line="40" Column="27" />
       <File FileName="Enemy.cs" Line="78" Column="46" />
       <File FileName="Bullet.cs" Line="51" Column="20" />
-      <File FileName="g:\Jess' house\Technical Games Production\USMS Main Folder\USMS_Source\AppMain.cs" Line="13" Column="1" />
       <File FileName="UI\TitleScreen.cs" Line="1" Column="1" />
       <File FileName="UI\OptionsScene.cs" Line="1" Column="1" />
       <File FileName="UI\MenuScene.cs" Line="1" Column="1" />
       <File FileName="Levels\TestLevel.cs" Line="33" Column="2" />
-      <File FileName="Levels\Level.cs" Line="101" Column="7" />
+      <File FileName="Levels\Level.cs" Line="104" Column="7" />
+      <File FileName="AppMain.cs" Line="61" Column="7" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="USMS_Source" expanded="True">
-            <Node name="DMX Maps" expanded="True" />
             <Node name="Images" expanded="True" />
-            <Node name="Levels" expanded="True">
-              <Node name="Level.cs" selected="True" />
-            </Node>
+            <Node name="Levels" expanded="True" />
             <Node name="textures" expanded="True" />
             <Node name="UI" expanded="True" />
+            <Node name="AppMain.cs" selected="True" />
           </Node>
         </State>
       </Pad>
